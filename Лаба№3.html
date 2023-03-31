@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lad4.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Фомина Ангелина 211-326</h1>
+    <div class="modal-cont" id="modal">
+        <div class="modal-content">
+            <button class="close">x</button>
+            <form id="form" name="register" method="post" >
+                <fieldset>
+                    <legend>Data</legend>
+                    <div class="form">
+                        <p><label for="id1" class="form_head">Your name:</label></p>
+                        <input id="id1" type="email" class="form_txt" placeholder="email" name="Name" required>
+                        <p id="error1" class="err_msg"></p>
+                        <p><label for="id2" class="form_head">Your password</label></p>
+                        <input id="id2" type="password" minlength="6" class="form_txt" name="date" placeholder="password" required>
+                        <p id="error2" class="err_msg"></p>
+                    </div>
+                    <div class="underlink">
+                        <button id="btn1" type="button">Show</button>
+                        <input type="submit" id="btn2">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <button class="openM" data-trigger>Регистрация</button>
+    <script src="lab3.js"></script>
+</body>
+</html>
