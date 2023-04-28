@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  },
+  "name": "angelina",
+  "version": "1.0.0",
+  "description": "kimoihyu",
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js",
+    "serve": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
