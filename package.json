@@ -1,0 +1,21 @@
+{
+  "name": "labworks",
+  "version": "1.0.0",
+  "description": "she doesn't know",
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js",
+    "serve": "nodemon app.js"
+  },
+  "keywords": [
+    "server",
+    "http",
+    "node"
+  ],
+  "author": "Angelina Fomina",
+  "license": "ISC",
+  "dependencies": {
+    "browser-detect": "^0.2.28",
+    "nodemon": "^2.0.22"
+  }
+}
