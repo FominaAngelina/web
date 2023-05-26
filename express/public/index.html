@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="awsm.css">
     <title>Document</title>
 </head>
 <body>
-    <p>hello</p>
+    <h1>Документация</h2>
+        <h2>Пути:</h2>
+        <h3>Версия API: express. http://127.0.0.1:5500/v1</h3>
+        <ul>
+            <li> get: '/'
+                <p>Начальная страница. Выводит "Home".</p>
+            </li>
+            <li> get: '/users'
+                <p>На странице выводится таблица с информацией, сколько пользователей и сколько раз они посетили страницу. </p>
+            </li>
+            <li> get: '/comments'
+                <p>Выводит все добавленные комментарии</p>
+            </li>
+            <li> post: '/comments'
+                <p>Добавляет комментарий</p>
+            </li>
+            <li> get: '/register'
+                <p>Проверяет есть ли ключ пользователя и есть ли он среди зарегестрированных пользователей</p>
+            </li>
+        </ul>
+        
+        <h3>Версия API: mongoDB. http://127.0.0.1:5500/v2</h3>
+        <ul>
+            <li> get: '/comment/:id'
+                <p>Выводит комментарий с указанным id.</p>
+            </li>
+            <li> get: '/comments'
+                <p>Выводит все комментарии.</p>
+            </li>
+            <li> post: '/comments'
+                <p>Добавляет новый комментарий с именем пользователя, сообщением и датой добавления.</p>
+            </li>
+        </ul>
+        <h2>Методы:</h2>
+
 </body>
 </html>

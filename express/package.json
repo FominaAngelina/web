@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "mongodb": "^5.5.0",
+    "morgan": "^1.10.0",
+    "node": "^20.2.0",
     "nodemon": "^2.0.22"
   },
   "name": "angelina",
