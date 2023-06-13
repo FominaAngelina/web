@@ -1,0 +1,422 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "SWAGGER UI json",
+    "version": "1.1"
+  },
+  "components": {
+    "securitySchemes": {
+      "apikey": {
+        "description": "ключ для авторизации",
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5500/v3"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "Пользователь и его данные"
+    },
+    {
+      "name": "models",
+      "description": "Операции с моделями"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Проверочное сообщение",
+            "content": {
+              "plain/text": {
+                "schema": {
+                  "type": "string",
+                  "description": "Hello world!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Введите id пользователя"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ключ пользователя получен!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "Ключ пользователя"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ключ не найден!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "Данные отсутствуют!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/models/{id}": {
+      "get": {
+        "tags": [
+          "models"
+        ],
+        "description": "Получение модели по id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Введите id модели"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Модель получена!"
+          },
+          "501": {
+            "description": "Ошибка ответа!"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "models"
+        ],
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "description": "Обновите данные выбранной модели",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Введите id модели для изменений"
+          }
+        ],
+        "requestBody": {
+          "description": "Введите новые данные для обновления",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Имя модели"
+                  },
+                  "model": {
+                    "type": "object",
+                    "description": "Сама модель"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Тип модели"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Описание модели"
+                  },
+                  "comments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "comm1",
+                        "comm2",
+                        "comm3"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Модель обновлена!"
+          },
+          "401": {
+            "description": "Ошибка при обновлении!"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "models"
+        ],
+        "description": "Удаление модели",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ВВедите id модели для удаления"
+          }
+        ],
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Модель удалена!"
+          },
+          "401": {
+            "description": "Операция не выполнена!"
+          }
+        }
+      }
+    },
+    "/models": {
+      "post": {
+        "tags": [
+          "models"
+        ],
+        "description": "СОздание новой модели!",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "requestBody": {
+          "description": "bububu",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Имя модели"
+                  },
+                  "model": {
+                    "type": "object",
+                    "description": "Сама модель"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Тип модели"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Описание модели"
+                  },
+                  "comments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "comm1",
+                        "comm2",
+                        "comm3"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Модель добавлена!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return OK"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "everything is fine"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Ошибка операции!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return fail"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unathorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ошибка добавления!",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status of response"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "comment added"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "models"
+        ],
+        "description": "Просмотр существующих моделей",
+        "responses": {
+          "200": {
+            "description": "Список моделей",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user_name": {
+                        "type": "string",
+                        "description": "creator name"
+                      },
+                      "model_name": {
+                        "type": "string",
+                        "description": "new model name"
+                      },
+                      "model_type": {
+                        "type": "string",
+                        "description": "geometrical type"
+                      },
+                      "json_file": {
+                        "type": "object",
+                        "description": "insert your json here"
+                      },
+                      "desc": {
+                        "type": "string",
+                        "description": "any description"
+                      },
+                      "comms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": [
+                          "comm1",
+                          "comm2",
+                          "comm3"
+                        ]
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "_id": "id1",
+                      "model_name": "name1"
+                    },
+                    {
+                      "_id": "id2",
+                      "model_name": "name2"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Ошибка!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return fail"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unathorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ошибка запроса"
+          }
+        }
+      }
+    }
+  }
+}

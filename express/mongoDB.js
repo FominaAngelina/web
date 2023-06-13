@@ -10,7 +10,7 @@ router.get('/', function(req, res){
     res.status(200).send('Hello world!');
 });
 
-router.get('/comment/:id', getComment);
+router.get('/comments/:id', getComment);
 router.post('/comments',post);
 router.get('/comments', Comments);
 
